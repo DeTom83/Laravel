@@ -25,9 +25,23 @@ Route::get('/pizzas', function () {
     ];
 
     $pizzas = [
-        ['type' => 'hawaiian', 'base' => 'cheesy crust'],
-        ['type' => 'volcano', 'base' => 'garlic crust'],
-        ['type' => 'peri-peri lover', 'base' => 'hot chilli']
+        ['type' => 'hawaiian', 'base' => 'cheesy crust', 'price' => 10],
+        ['type' => 'volcano', 'base' => 'garlic crust' , 'price' => 15],
+        ['type' => 'peri-peri lover', 'base' => 'hot chilli', 'price' => 20]
     ];
+
     return view('pizzas',$pizza, ['pizzas' => $pizzas]);
+
+
+    //$price2 = request('price'); - Query parameters
+    //return view('pizzas',$pizza, ['pizzas' => $pizzas, 'price2' => $price2]);
+
+    //return view('pizzas',$pizza, ['pizzas' => $pizzas, 'price2' => request('price')]);
 });
+
+// --------------------- Use wildcards ------------------------
+Route::get('/pizzas/{id}', function ($id) {
+    return view('details', ['id' => $id]);
+});
+
+
