@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+Route::get('/', 'GalleryController@index');
+Route::get('/gallery/show/{id}', 'GalleryController@show');
+Route::get('/photo/details/{id}', 'PhotoController@details');
+
+
+
+Route::resource('gallery', 'GalleryController');
+Route::resource('photo', 'PhotoController');
